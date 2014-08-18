@@ -39,7 +39,7 @@ MITX_FEATURES = {
 
     'GITHUB_PUSH': False,
 
-    'ENABLE_DISCUSSION_SERVICE': False,
+    'ENABLE_DISCUSSION_SERVICE': True,
 
     'AUTH_USE_MIT_CERTIFICATES': False,
 
@@ -188,11 +188,17 @@ ROOT_URLCONF = 'cms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'registration@edx.org'
-DEFAULT_FEEDBACK_EMAIL = 'feedback@edx.org'
-SERVER_EMAIL = 'devops@edx.org'
-ADMINS = ()
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'no-reply@cse.iitb.ac.in'
+DEFAULT_FEEDBACK_EMAIL = 'praveenp@cse.iitb.ac.in'
+SERVER_EMAIL = 'praveenp@cse.iitb.ac.in'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.cse.iitb.ac.in'
+EMAIL_HOST_USER = 'praveenp@cse.iitb.ac.in'
+EMAIL_PASSWORD = "praveenp*"
+EMAIL_PORT = 25
+ADMINS = ( ('edx Admins', 'admin@edx.org'))
 MANAGERS = ADMINS
 
 # Static content

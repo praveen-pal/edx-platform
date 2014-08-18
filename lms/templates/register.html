@@ -124,10 +124,14 @@
             <label for="email">${_('E-mail')}</label>
             <input class="" id="email" type="email" name="email" value="" placeholder="${_('example: username@domain.com')}" required aria-required="true" />
           </li>
+
+
+
           <li class="field required password" id="field-password">
             <label for="password">${_('Password')}</label>
             <input id="password" type="password" name="password" value="" required aria-required="true" />
           </li>
+
           <li class="field required text" id="field-username">
             <label for="username">${_('Public Username')}</label>
             <input id="username" type="text" name="username" value="" placeholder="${_('example: JaneDoe')}" required aria-required="true" />
@@ -203,6 +207,38 @@
                 %endfor
               </select>
             </div>
+            <!-- ERROR ZONE: changes done by me  taking values from database  -->
+
+            <div class="field select" id="field-state_of_student">
+              <label for="state_of_student">${_("State")}</label>
+              <select id="state_of_student" name="state_of_student">
+                <option value="">--</option>
+                %for code, state_of_student in UserProfile.STATE_CHOICES:
+                <option value="${code}">${state_of_student}</option>
+                %endfor
+              </select>
+            </div>
+ 
+          <!-- -----------------------------------------  -->
+
+
+
+
+
+
+           <!-- ERROR ZONE: changes done by me   taking values form list available in models.py -->
+
+        <!--    <div class="field select" id="field-state_of_student">
+              <label for="state_of_student">${_("State")}</label>
+              <select id="state_of_student" name="state_of_student">
+                <option value="">--</option>
+                %for code, state_of_student in UserProfile.STATE_CHOICES:
+                <option value="${code}">${state_of_student}</option>
+                %endfor
+              </select>
+            </div>  -->
+ 
+          <!-- -----------------------------------------  -->
 
             <div class="field select" id="field-yob">
               <label for="yob">${_("Year of Birth")}</label>

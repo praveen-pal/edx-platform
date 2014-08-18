@@ -15,7 +15,8 @@ def push():
 def pull():
     for locale in CONFIGURATION.locales:
         if locale != CONFIGURATION.source_locale:
-            execute('tx pull -l %s' % locale)
+            #execute('tx pull -l %s' % locale)
+            execute('tx pull --all')
     clean_translated_locales()
 
 

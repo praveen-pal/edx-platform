@@ -79,12 +79,11 @@ CACHES = {
     }
 }
 
-
 XQUEUE_INTERFACE = {
-    "url": "https://sandbox-xqueue.edx.org",
+    "url": "http://127.0.0.1:3032",
     "django_auth": {
         "username": "lms",
-        "password": "***REMOVED***"
+        "password": "abcd"
     },
     "basic_auth": ('anant', 'agarwal'),
 }
@@ -126,7 +125,7 @@ VIRTUAL_UNIVERSITIES = []
 # Organization that contain other organizations
 META_UNIVERSITIES = {'UTx': ['UTAustinX']}
 
-COMMENTS_SERVICE_KEY = "PUT_YOUR_API_KEY_HERE"
+COMMENTS_SERVICE_KEY = "0u3ru93u398rq3083u0u83"
 
 ############################## Course static files ##########################
 if os.path.isdir(DATA_DIR):

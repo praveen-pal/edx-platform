@@ -579,7 +579,7 @@ def _do_create_account(post_vars):
     profile.gender = post_vars.get('gender')
     profile.mailing_address = post_vars.get('mailing_address')
     profile.goals = post_vars.get('goals')
-
+    profile.state_of_student=post_vars.get('state_of_student')
     try:
         profile.year_of_birth = int(post_vars['year_of_birth'])
     except (ValueError, KeyError):

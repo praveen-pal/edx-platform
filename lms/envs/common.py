@@ -35,7 +35,7 @@ from xmodule.modulestore.inheritance import InheritanceMixin
 
 ################################### FEATURES ###################################
 # The display name of the platform to be used in templates/emails/etc.
-PLATFORM_NAME = "edX"
+PLATFORM_NAME = "Bharat Mooc"
 
 COURSEWARE_ENABLED = True
 ENABLE_JASMINE = False
@@ -80,7 +80,7 @@ MITX_FEATURES = {
 
     'ENABLE_PSYCHOMETRICS': False,  # real-time psychometrics (eg item response theory analysis in instructor dashboard)
 
-    'ENABLE_DJANGO_ADMIN_SITE': False,  # set true to enable django's admin site, even on prod (e.g. for course ops)
+    'ENABLE_DJANGO_ADMIN_SITE': True,  # set true to enable django's admin site, even on prod (e.g. for course ops)
     'ENABLE_SQL_TRACKING_LOGS': False,
     'ENABLE_LMS_MIGRATION': False,
     'ENABLE_MANUAL_GIT_RELOAD': False,
@@ -105,9 +105,11 @@ MITX_FEATURES = {
     'RESTRICT_ENROLL_BY_REG_METHOD': False,
 
     # analytics experiments
-    'ENABLE_INSTRUCTOR_ANALYTICS': False,
+    #-------- changed by me from false to true-------
+    'ENABLE_INSTRUCTOR_ANALYTICS': True,
 
-    'ENABLE_INSTRUCTOR_EMAIL': False,
+    #-------- changed by me from false to true-------
+    'ENABLE_INSTRUCTOR_EMAIL': True,
 
     # enable analytics server.
     # WARNING: THIS SHOULD ALWAYS BE SET TO FALSE UNDER NORMAL
@@ -379,17 +381,25 @@ ROOT_URLCONF = 'lms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'registration@edx.org'
-DEFAULT_BULK_FROM_EMAIL = 'course-updates@edx.org'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'no-reply@cse.iitb.ac.in'
+DEFAULT_BULK_FROM_EMAIL = 'praveenp@cse.iitb.ac.in'
 EMAILS_PER_TASK = 100
 EMAILS_PER_QUERY = 1000
-DEFAULT_FEEDBACK_EMAIL = 'feedback@edx.org'
-SERVER_EMAIL = 'devops@edx.org'
-TECH_SUPPORT_EMAIL = 'technical@edx.org'
-CONTACT_EMAIL = 'info@edx.org'
-BUGS_EMAIL = 'bugs@edx.org'
-ADMINS = ()
+DEFAULT_FEEDBACK_EMAIL = 'praveenp@cse.iitb.ac.in'
+SERVER_EMAIL = 'praveenp@cse.iitb.ac.in'
+TECH_SUPPORT_EMAIL = 'praveenp@cse.iitb.ac.in'
+CONTACT_EMAIL = 'praveenp@cse.iitb.ac.in'
+BUGS_EMAIL = 'praveenp@cse.iitb.ac.in'
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.cse.iitb.ac.in'
+EMAIL_HOST_USER = 'praveenp@cse.iitb.ac.in'
+EMAIL_PASSWORD = "praveenp*"
+EMAIL_PORT = 25
+ADMINS = ( ('edx Admins', 'admin@edx.org'))
+
 MANAGERS = ADMINS
 
 # Static content
@@ -405,9 +415,9 @@ STATICFILES_DIRS = [
 FAVICON_PATH = 'images/favicon.ico'
 
 # Locale/Internationalization
-TIME_ZONE = 'America/New_York'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-LANGUAGE_CODE = 'en'  # http://www.i18nguy.com/unicode/language-identifiers.html
-USE_I18N = False
+TIME_ZONE = 'Asia/Kolkata'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+LANGUAGE_CODE = 'hi'  # http://www.i18nguy.com/unicode/language-identifiers.html
+USE_I18N = True
 USE_L10N = True
 
 # Localization strings (e.g. django.po) are under this directory
@@ -535,7 +545,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
 
     'django.middleware.transaction.TransactionMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+     'debug_toolbar.middleware.DebugToolbarMiddleware',
 
     'django_comment_client.utils.ViewNameMiddleware',
     'codejail.django_integration.ConfigureCodeJailMiddleware',

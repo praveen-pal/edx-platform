@@ -92,12 +92,22 @@ class UserProfile(models.Model):
         ('jhs', "Junior secondary/junior high/middle school"),
         ('el', "Elementary/primary school"),
         ('none', "None"),
+        ('kg',"School"),
         ('other', "Other")
     )
     level_of_education = models.CharField(
         blank=True, null=True, max_length=6, db_index=True,
         choices=LEVEL_OF_EDUCATION_CHOICES
     )
+### state field added by me ###############################################################
+    STATE_CHOICES = (
+        ('up',"Uttar Praesh"),
+        ('mp',"Madhya Pradesh"),
+        ('pun',"Punjab"),
+	('TN',"Tamil nadu" )
+    ) 
+    state_of_student= models.CharField(blank=True, null=True,max_length=10,db_index=True,choices=STATE_CHOICES)
+##################################################################################################
     mailing_address = models.TextField(blank=True, null=True)
     goals = models.TextField(blank=True, null=True)
     allow_certificate = models.BooleanField(default=1)
@@ -1020,3 +1030,29 @@ def log_successful_login(sender, request, user, **kwargs):
 def log_successful_logout(sender, request, user, **kwargs):
     """Handler to log when logouts have occurred successfully."""
     AUDIT_LOG.info(u"Logout - {0}".format(request.user))
+
+#-----------test table added by praveen ---------------#
+class Praveen(models.Model):
+    classroom_topic = models.CharField(max_length=255)
+    course_id=models.CharField(max_length=255)
+    course_name=models.CharField(max_length=255,null=False)
+    
+    def __unicode__(self):
+       return self.classroom_topic
+
+########### ---- table to store student's geographic information ----------------changes by me----#
+class State(models.Model):
+      state=models.CharField(max_length=255,unique=True,db_index=True,null=False)
+     
+      def __unicode__(self):
+          return self.state
+
+
+class City(models.Model):
+      state = models.ForeignKey(State)
+      city= models.CharField(max_length=255)
+      
+      def __unicode__(self):
+          return self.city
+          
+      
