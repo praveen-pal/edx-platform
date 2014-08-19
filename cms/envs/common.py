@@ -190,13 +190,13 @@ IGNORABLE_404_ENDS = ('favicon.ico')
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'no-reply@cse.iitb.ac.in'
-DEFAULT_FEEDBACK_EMAIL = 'praveenp@cse.iitb.ac.in'
-SERVER_EMAIL = 'praveenp@cse.iitb.ac.in'
+DEFAULT_FEEDBACK_EMAIL = 'p@cse.iitb.ac.in'
+SERVER_EMAIL = 'p@cse.iitb.ac.in'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.cse.iitb.ac.in'
-EMAIL_HOST_USER = 'praveenp@cse.iitb.ac.in'
-EMAIL_PASSWORD = "praveenp*"
+EMAIL_HOST_USER = 'p@cse.iitb.ac.in'
+EMAIL_PASSWORD = "**************"
 EMAIL_PORT = 25
 ADMINS = ( ('edx Admins', 'admin@edx.org'))
 MANAGERS = ADMINS
